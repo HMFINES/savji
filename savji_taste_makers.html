@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savji Taste Makers | सवजी टेस्ट माकेर्स</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B1A;
+    --deep-red: #8B1A1A;
+    --gold: #D4AF37;
+    --cream: #FFF8EE;
+    --charcoal: #1A1008;
+    --warm-brown: #4A2C0A;
+    --spice: #C0392B;
+    --leaf: #2E7D32;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: linear-gradient(to bottom, rgba(26,16,8,0.95), transparent);
+    backdrop-filter: blur(4px);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-logo span {
+    display: block;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 0.75rem;
+    color: var(--saffron);
+    letter-spacing: 0.1em;
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+    opacity: 0.8;
+  }
+
+  .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+  .nav-cta {
+    background: var(--saffron);
+    color: var(--charcoal) !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+    transition: background 0.3s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--charcoal);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 20% 50%, rgba(192,57,43,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 30%, rgba(212,175,55,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 50% at 50% 80%, rgba(255,107,26,0.1) 0%, transparent 50%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: 
+      repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(-45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-hindi {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--saffron);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .hero-title .accent { color: var(--saffron); font-style: italic; }
+
+  .hero-subtitle {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: rgba(255,248,238,0.6);
+    letter-spacing: 0.08em;
+    animation: fadeUp 1s 0.5s ease both;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    animation: fadeUp 1s 0.6s ease both;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .hero-meta-item .val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .hero-meta-item .lbl {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,248,238,0.5);
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: 50px;
+    background: rgba(212,175,55,0.3);
+    align-self: center;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    animation: fadeUp 1s 0.7s ease both;
+  }
+
+  .btn-primary {
+    background: var(--saffron);
+    color: var(--charcoal);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255,107,26,0.3);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(255,248,238,0.4);
+    padding: 1rem 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeUp 1s 1.2s ease both;
+    opacity: 0.5;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: var(--gold);
+    animation: scrollLine 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 6rem 4rem; }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--saffron);
+    opacity: 0.5;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--cream);
+  }
+
+  .section-title em { color: var(--saffron); font-style: italic; }
+
+  /* ─── ABOUT ─── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(74,44,10,0.3) 0%, transparent 100%);
+    border-top: 1px solid rgba(212,175,55,0.15);
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-frame {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--deep-red), var(--warm-brown));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(255,107,26,0.3), transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(212,175,55,0.2), transparent 50%);
+  }
+
+  /* Decorative food icons */
+  .food-icon {
+    position: absolute;
+    font-size: 5rem;
+    opacity: 0.15;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .food-icon:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+  .food-icon:nth-child(2) { top: 50%; right: 10%; font-size: 7rem; animation-delay: 1s; }
+  .food-icon:nth-child(3) { bottom: 20%; left: 25%; font-size: 4rem; animation-delay: 2s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-15px); }
+  }
+
+  .about-img-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .about-img-center .big-icon { font-size: 8rem; opacity: 0.6; }
+
+  .about-corner-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 120px;
+    height: 120px;
+    background: var(--saffron);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-corner-badge .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--charcoal);
+    line-height: 1;
+  }
+
+  .about-corner-badge .txt {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+
+  .about-text { padding-top: 1rem; }
+
+  .about-description {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: rgba(255,248,238,0.7);
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .feature-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(255,248,238,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .feature-tag .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--saffron);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── SPECIALTIES ─── */
+  .specialties {
+    background: rgba(255,107,26,0.03);
+    border-top: 1px solid rgba(212,175,55,0.1);
+    border-bottom: 1px solid rgba(212,175,55,0.1);
+  }
+
+  .specialties-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(212,175,55,0.1);
+  }
+
+  .menu-card {
+    background: var(--charcoal);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+
+  .menu-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,107,26,0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .menu-card:hover::before { opacity: 1; }
+  .menu-card:hover { transform: translateY(-4px); }
+
+  .menu-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .menu-card:hover .menu-card-icon { transform: scale(1.15); }
+
+  .menu-card-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.5rem;
+  }
+
+  .menu-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.7rem;
+  }
+
+  .menu-card-desc {
+    font-size: 0.9rem;
+    color: rgba(255,248,238,0.5);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .menu-card-price {
+    margin-top: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .menu-card.featured {
+    background: linear-gradient(135deg, rgba(139,26,26,0.5), rgba(74,44,10,0.5));
+    grid-row: span 2;
+  }
+
+  .menu-card.featured .menu-card-name { font-size: 2rem; }
+  .menu-card.featured .menu-card-icon { font-size: 5rem; }
+
+  /* ─── REVIEWS ─── */
+  .reviews {
+    background: var(--charcoal);
+  }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .rating-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .rating-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stars { color: var(--saffron); font-size: 1.5rem; letter-spacing: 0.1em; }
+
+  .rating-count {
+    font-size: 0.8rem;
+    color: rgba(255,248,238,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    border: 1px solid rgba(212,175,55,0.15);
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .review-card:hover { border-color: rgba(212,175,55,0.4); }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--saffron);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .review-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,248,238,0.7);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .reviewer-name {
+    font-weight: 600;
+    color: var(--cream);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .reviewer-meta {
+    font-size: 0.75rem;
+    color: rgba(255,248,238,0.35);
+    margin-top: 0.2rem;
+  }
+
+  .review-stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 0.8rem; }
+
+  /* ─── INFO STRIP ─── */
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(212,175,55,0.15);
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+    padding: 0;
+  }
+
+  .info-item {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-right: 1px solid rgba(212,175,55,0.1);
+  }
+
+  .info-item:last-child { border-right: none; }
+
+  .info-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  .info-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+  }
+
+  .info-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream);
+    font-weight: 700;
+  }
+
+  .info-sub {
+    font-size: 0.8rem;
+    color: rgba(255,248,238,0.4);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 4rem;
+    border-top: 1px solid rgba(212,175,55,0.15);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .footer-brand .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+
+  .footer-brand .logo span {
+    display: block;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 1rem;
+    color: var(--saffron);
+    font-weight: 400;
+  }
+
+  .footer-tagline {
+    font-size: 0.95rem;
+    color: rgba(255,248,238,0.4);
+    margin-top: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .footer-heading {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { color: rgba(255,248,238,0.5); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-bottom p { font-size: 0.75rem; color: rgba(255,248,238,0.25); letter-spacing: 0.05em; }
+
+  .open-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(46,125,50,0.2);
+    border: 1px solid rgba(46,125,50,0.4);
+    color: #81C784;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .open-dot {
+    width: 6px;
+    height: 6px;
+    background: #81C784;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ─── SPICE DIVIDER ─── */
+  .spice-divider {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    letter-spacing: 1rem;
+  }
+
+  /* ─── ORDER BAND ─── */
+  .order-band {
+    background: var(--saffron);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .order-band-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--charcoal);
+    font-weight: 900;
+  }
+
+  .order-band-text p {
+    font-size: 0.9rem;
+    color: rgba(26,16,8,0.6);
+    margin-top: 0.3rem;
+  }
+
+  .order-band-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .platform-btn {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 0.8rem 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .platform-btn:hover { background: var(--warm-brown); transform: translateY(-2px); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-card.featured { grid-row: span 1; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .info-strip { grid-template-columns: 1fr 1fr; }
+    footer { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.5rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; padding: 1rem 1.5rem; }
+    .order-band { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
+    .hero-meta { gap: 1rem; }
+    .specialties-header { flex-direction: column; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Savji Taste Makers
+    <span>सवजी टेस्ट माकेर्स</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#visit">Visit</a></li>
+    <li><a href="tel:08668584875" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Jalna, Maharashtra · Est. Restaurant</div>
+    <p class="hero-hindi">सवजी टेस्ट माकेर्स</p>
+    <h1 class="hero-title">Savji <em>Taste</em><br>Makers</h1>
+    <p class="hero-subtitle">Authentic Nagpur-style Non-Veg · Kala Masala · Biryani</p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="val">4.3</span>
+        <span class="lbl">Rating</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item">
+        <span class="val">30+</span>
+        <span class="lbl">Reviews</span>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item">
+        <span class="val">₹200</span>
+        <span class="lbl">Per Person</span>
+      </div>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="tel:08668584875" class="btn-primary">Reserve a Table</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-img-frame">
+      <span class="food-icon">🍛</span>
+      <span class="food-icon">🌶️</span>
+      <span class="food-icon">🍗</span>
+      <div class="about-img-center">
+        <div class="big-icon">🍽️</div>
+      </div>
+    </div>
+    <div class="about-corner-badge">
+      <span class="num">★4.3</span>
+      <span class="txt">Google</span>
+    </div>
+  </div>
+
+  <div class="about-text">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">Nagpur Flavours,<br><em>Jalna Home</em></h2>
+    <p class="about-description">
+      Born from the beloved Savji cuisine of Vidarbha, Savji Taste Makers brings the bold, aromatic flavours of Nagpur's legendary Kala Masala tradition to the heart of Jalna. What began as a beloved home delivery on Zomato & Swiggy has blossomed into a full restaurant experience — welcoming families and food lovers through our doors.
+    </p>
+    <p class="about-description" style="margin-top:1rem;">
+      Our signature non-spicy Kala Masala and finger-licking Chicken Biryani have earned us a loyal family of regulars who return week after week.
+    </p>
+
+    <div class="about-features">
+      <div class="feature-tag"><span class="dot"></span> Dine-in Available</div>
+      <div class="feature-tag"><span class="dot"></span> Drive-through</div>
+      <div class="feature-tag"><span class="dot"></span> No-contact Delivery</div>
+      <div class="feature-tag"><span class="dot"></span> Zomato & Swiggy</div>
+      <div class="feature-tag"><span class="dot"></span> Family Friendly</div>
+      <div class="feature-tag"><span class="dot"></span> Nagpur Spice Tradition</div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="specialties" id="menu">
+  <div class="specialties-header">
+    <div>
+      <div class="section-label">Our Specialties</div>
+      <h2 class="section-title">Crafted with<br><em>Spice & Soul</em></h2>
+    </div>
+    <p style="font-size:0.85rem;color:rgba(255,248,238,0.4);max-width:280px;text-align:right;line-height:1.6;">
+      Every dish is prepared fresh with traditional Savji spice blends passed down through generations.
+    </p>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-card featured">
+      <span class="menu-card-icon">🍛</span>
+      <div class="menu-card-tag">House Special</div>
+      <div class="menu-card-name">Chicken Biryani</div>
+      <p class="menu-card-desc">Aromatic long-grain rice slow-cooked with tender chicken in our signature Savji spice blend. Fragrant, flavorful, and utterly unforgettable.</p>
+      <div class="menu-card-price">₹180 – ₹280</div>
+    </div>
+
+    <div class="menu-card">
+      <span class="menu-card-icon">🍗</span>
+      <div class="menu-card-tag">Must Try</div>
+      <div class="menu-card-name">Spicy Chicken Wings</div>
+      <p class="menu-card-desc">Marinated in Nagpur Kala Masala, grilled to perfection. Finger-licking good.</p>
+      <div class="menu-card-price">₹160 – ₹220</div>
+    </div>
+
+    <div class="menu-card">
+      <span class="menu-card-icon">🥘</span>
+      <div class="menu-card-tag">Signature</div>
+      <div class="menu-card-name">Kala Masala Curry</div>
+      <p class="menu-card-desc">Rich, dark, aromatic gravy with bold Vidarbha spices. Non-spicy version available.</p>
+      <div class="menu-card-price">₹150 – ₹200</div>
+    </div>
+
+    <div class="menu-card">
+      <span class="menu-card-icon">🫓</span>
+      <div class="menu-card-tag">Bread</div>
+      <div class="menu-card-name">Garlic Naan</div>
+      <p class="menu-card-desc">Soft, pillowy naan with golden garlic butter, baked fresh in our tandoor.</p>
+      <div class="menu-card-price">₹40 – ₹60</div>
+    </div>
+
+    <div class="menu-card">
+      <span class="menu-card-icon">🥩</span>
+      <div class="menu-card-tag">Grill</div>
+      <div class="menu-card-name">Grilled Steak</div>
+      <p class="menu-card-desc">Cooked to perfection, marinated in our signature blend of Savji spices.</p>
+      <div class="menu-card-price">₹220 – ₹320</div>
+    </div>
+
+    <div class="menu-card">
+      <span class="menu-card-icon">🍚</span>
+      <div class="menu-card-tag">Comfort</div>
+      <div class="menu-card-name">Mutton Rice</div>
+      <p class="menu-card-desc">Slow-cooked mutton with fragrant basmati, served with mirchi ka salan.</p>
+      <div class="menu-card-price">₹200 – ₹280</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip" id="visit">
+  <div class="info-item">
+    <div class="info-icon">🕐</div>
+    <div class="info-label">Hours</div>
+    <div class="info-value">Open Today</div>
+    <div class="info-sub">Closes 10:30 PM</div>
+    <div style="margin-top:0.5rem"><span class="open-badge"><span class="open-dot"></span> Open Now</span></div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">📍</div>
+    <div class="info-label">Location</div>
+    <div class="info-value">Archana Nagar</div>
+    <div class="info-sub">Ambad Rd, Laxminarayanpura<br>Jalna, MH 431213</div>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">📞</div>
+    <div class="info-label">Reservations</div>
+    <div class="info-value">086685 84875</div>
+    <div class="info-sub">Call or walk-in</div>
+    <a href="tel:08668584875" class="btn-primary" style="margin-top:1rem;font-size:0.75rem;padding:0.5rem 1rem;">Call Now</a>
+  </div>
+  <div class="info-item">
+    <div class="info-icon">💰</div>
+    <div class="info-label">Budget</div>
+    <div class="info-value">₹200 – ₹400</div>
+    <div class="info-sub">Per person · All meals</div>
+  </div>
+</div>
+
+<!-- ORDER BAND -->
+<div class="order-band">
+  <div class="order-band-text">
+    <h3>Order Online</h3>
+    <p>Get our food delivered hot & fresh to your doorstep</p>
+  </div>
+  <div class="order-band-links">
+    <a href="#" class="platform-btn">🛵 Zomato</a>
+    <a href="#" class="platform-btn">🛵 Swiggy</a>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div class="section-label" style="justify-content:center;">What Guests Say</div>
+    <h2 class="section-title">Our <em>Reviews</em></h2>
+    <div class="rating-display">
+      <div class="rating-big">4.3</div>
+      <div>
+        <div class="stars">★★★★☆</div>
+        <div class="rating-count">30 Google Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Finger-licking good food! The chicken biryani was aromatic and flavorful, while the grilled steak was cooked to perfection. The service was prompt and friendly. Highly recommend the spicy chicken wings and garlic naan. Overall, a fantastic dining experience!</p>
+      <div class="reviewer-name">Rutu Parjane</div>
+      <div class="reviewer-meta">Local Guide · 20 reviews · 8 months ago</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I am a regular customer of Savji. I used to order via Zomato or Swiggy first, but happy now the owner has opened a restaurant. Recently visited with family — taste is too good. Non-spicy and tasty Kala Masala. I wish good luck to the owner!</p>
+      <div class="reviewer-name">RAJ B</div>
+      <div class="reviewer-meta">Local Guide · 28 reviews · 9 months ago</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">Good Food, Good Taste, very nice people. Must try if you love Non-veg from Nagpur Region. The flavours are authentic and the ambience is welcoming. Will definitely come back!</p>
+      <div class="reviewer-name">Onkar Kokate</div>
+      <div class="reviewer-meta">Local Guide · 285 reviews · 2 years ago</div>
+    </div>
+  </div>
+</section>
+
+<div class="spice-divider">🌶️ 🍛 🌿 🔥 🍗</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo">
+      Savji Taste Makers
+      <span>सवजी टेस्ट माकेर्स</span>
+    </div>
+    <p class="footer-tagline">Bringing the bold, authentic flavours of Nagpur's Savji cuisine to every plate. Rooted in tradition, served with love.</p>
+  </div>
+
+  <div>
+    <div class="footer-heading">Quick Links</div>
+    <ul class="footer-links">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#menu">Our Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+      <li><a href="tel:08668584875">Call: 086685 84875</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <div class="footer-heading">Order Online</div>
+    <ul class="footer-links">
+      <li><a href="#">Zomato</a></li>
+      <li><a href="#">Swiggy</a></li>
+      <li><a href="#">Dine-in</a></li>
+      <li><a href="#">Drive-through</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  <p>© 2024 Savji Taste Makers, Jalna, Maharashtra. All rights reserved.</p>
+  <p>Archana Nagar, Ambad Rd · Open until 10:30 PM</p>
+</div>
+
+</body>
+</html>
